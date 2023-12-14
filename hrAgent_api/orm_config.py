@@ -5,9 +5,13 @@ from dotenv import load_dotenv
 load_dotenv()
     
 config = OrmService(
-    db_type="sqlite",
+    db_type="postgreSQL",
     config_params=dict(
-        db_name=os.getenv("SQLITE_DB_NAME", "default_nest_db"),
+        db_name="hr_agent_db",
+        user=os.getenv("DB_USER", "postgres"),
+        password=os.getenv("DB_PASS"),
+        host=os.getenv("DB_HOST", "localhost"),
+        port=os.getenv("DB_PORT", "5432")
     )
 )
         

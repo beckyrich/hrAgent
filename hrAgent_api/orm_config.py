@@ -1,11 +1,11 @@
-from nest.core.database.base_orm import OrmService
+from nest.core.database.orm_provider import OrmProvider
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
     
-config = OrmService(
-    db_type="postgreSQL",
+config = OrmProvider(
+    db_type="postgresql",
     config_params=dict(
         db_name="hr_agent_db",
         user=os.getenv("DB_USER", "postgres"),

@@ -6,6 +6,7 @@ from src.company.company_module import CompanyModule
 from src.candidate.candidate_module import CandidateModule
 from src.placement_history.placement_history_module import PlacementHistoryModule
 from src.jobs.jobs_module import JobsModule
+from src.gender.gender_module import GenderModule
 
 app = App(
     description="PyNest service",
@@ -16,6 +17,7 @@ app = App(
         CandidateModule,
         PlacementHistoryModule,
         JobsModule,
+        GenderModule,
     ]
 )
 

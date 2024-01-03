@@ -4,6 +4,7 @@ from fastapi.responses import RedirectResponse
 from src.examples.examples_module import ExamplesModule
 from src.company.company_module import CompanyModule
 from src.candidate.candidate_module import CandidateModule
+from src.placement_history.placement_history_module import PlacementHistoryModule
 
 app = App(
     description="PyNest service",
@@ -12,6 +13,7 @@ app = App(
         ExamplesModule,
         CompanyModule,
         CandidateModule,
+        PlacementHistoryModule,
     ]
 )
 

@@ -3,6 +3,7 @@ from nest.core.app import App
 from fastapi.responses import RedirectResponse
 from src.examples.examples_module import ExamplesModule
 from src.company.company_module import CompanyModule
+from src.candidate.candidate_module import CandidateModule
 
 app = App(
     description="PyNest service",
@@ -10,6 +11,7 @@ app = App(
     modules=[
         ExamplesModule,
         CompanyModule,
+        CandidateModule,
     ]
 )
 

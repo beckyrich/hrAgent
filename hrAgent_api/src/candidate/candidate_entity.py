@@ -15,5 +15,5 @@ class Candidate(config.Base):
     created = Column(DateTime)
     last_updated = Column(DateTime)
     last_login = Column(DateTime)
-    status_id = Column(DateTime        
+    status_id = Column(DateTime)        
     

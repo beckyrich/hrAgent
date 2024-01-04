@@ -26,9 +26,9 @@ app = App(
 )
 
 
-@app.on_event("startup")
-async def startup():
-    config.create_all() 
+# @app.on_event("startup")
+# async def startup():
+#     config.create_all() 
 
 
 @app.get("/")

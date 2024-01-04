@@ -2,5 +2,5 @@ from pydantic import BaseModel
     
     
 class Jobs(BaseModel):
-    name: str
+    job_id: str
     

@@ -1,5 +1,5 @@
 from orm_config import config
-from sqlalchemy import Column, Integer, String, Float, BigInteger, Numeric, Date, SmallInteger, TimeStamp
+from sqlalchemy import Column, Integer, String, Float, BigInteger, Numeric, Date, SmallInteger, DateTime
     
     
 class Candidate(config.Base):
@@ -12,9 +12,8 @@ class Candidate(config.Base):
     candidate_phone = Column(Numeric)
     candidate_birthdate = Column(Date)
     candidate_gender_id = Column(SmallInteger)
-    created = Column(TimeStamp)
-    last_updated = Column(TimeStamp)
-    last_login = Column(TimeStamp)
-    status_id = Column(Integer)
-        
+    created = Column(DateTime)
+    last_updated = Column(DateTime)
+    last_login = Column(DateTime)
+    status_id = Column(DateTime        
     

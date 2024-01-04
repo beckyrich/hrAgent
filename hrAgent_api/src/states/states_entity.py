@@ -1,5 +1,5 @@
 from orm_config import config
-from sqlalchemy import Column, Integer, String, Float, TimeStamp, SmallInteger
+from sqlalchemy import Column, Integer, String, Float, DateTime, SmallInteger
     
     
 class States(config.Base):
@@ -9,7 +9,7 @@ class States(config.Base):
     state_abbv = Column(String)
     state_name = Column(String)
     state_capital = Column(String)
-    created = Column(TimeStamp)
-    last_updated = Column(TimeStamp)
+    created = Column(DateTime)
+    last_updated = Column(DateTime)
         
     

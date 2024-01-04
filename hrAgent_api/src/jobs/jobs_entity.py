@@ -1,12 +1,12 @@
 import enum
 from orm_config import config
-from sqlalchemy import Column, Integer, String, Float, Enum, Boolean
+from sqlalchemy import Column, Integer, String, Float, Enum, Boolean, DateTime, BigInteger
     
 class JobType(enum.Enum):
     seasonal = 1
     fte = 2
     part_time = 3
-    1099 = 4
+    ten_99 = 4
     agency = 5
     contract_to_hire = 6
 
@@ -26,7 +26,7 @@ class Jobs(config.Base):
     job_title = Column(String)
     job_level = Column(Enum(JobLevel))
     remote = Column(Boolean)
-    created = Column(TimeStamp)
-    last_updated = Column(TimeStamp)
+    created = Column(DateTime)
+    last_updated = Column(DateTime)
         
     

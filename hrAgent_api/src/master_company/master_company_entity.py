@@ -1,5 +1,5 @@
 from orm_config import config
-from sqlalchemy import Column, Integer, String, Float, BigInteger, TimeStamp, SmallInteger, Numeric
+from sqlalchemy import Column, Integer, String, Float, BigInteger, DateTime, SmallInteger, Numeric
     
     
 class MasterCompany(config.Base):
@@ -11,8 +11,8 @@ class MasterCompany(config.Base):
     address_line_2 = Column(String)
     postal_code = Column(Numeric)
     state_id = Column(SmallInteger)
-    created = Column(TimeStamp)
-    last_updated = Column(TimeStamp)
+    created = Column(DateTime)
+    last_updated = Column(DateTime)
     company_type = Column(Integer)
     status_id = Column(Integer)
         

@@ -7,7 +7,7 @@ class MasterCompany(BaseModel):
     co_name: str
     address_line_1: str
     address_line_2: str
-    postal_code: float
+    postal_code: str
     state_id: int
     created: datetime
     last_updated: datetime

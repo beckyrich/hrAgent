@@ -24,6 +24,5 @@ class Jobs(BaseModel):
     job_title: str
     jobs_level: JobLevelEnum = JobLevelEnum.entry
     remote: bool
-    created: datetime
-    last_updated: datetime
-    
+    created: datetime = None
+    last_updated: datetime = None

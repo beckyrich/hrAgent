@@ -8,5 +8,5 @@ class Jobs(BaseModel):
     job_title: str
     jobs_level: JobLevelEnum = JobLevelEnum.entry
     remote: bool
-    created: datetime.datetime
-    last_updated: datetime.datetime
+    created: datetime
+    last_updated: datetime

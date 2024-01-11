@@ -7,7 +7,7 @@ load_dotenv()
 config = OrmProvider(
     db_type="postgresql",
     config_params=dict(
-        db_name="hr_agent_db",
+        db_name="hragent",
         user=os.getenv("DB_USER", "postgres"),
         password=os.getenv("DB_PASS"),
         host=os.getenv("DB_HOST", "localhost"),

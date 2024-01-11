@@ -8,7 +8,7 @@ class Candidate(config.Base):
     candidate_id = Column(BigInteger, primary_key=True, autoincrement=True)
     candidate_first_name = Column(String)
     candidate_last_name = Column(String)
-    candidate_email = Column(String, unique=True)
+    candidate_email = Column(String, unique=True, notnullable=False)
     candidate_phone = Column(Numeric)
     candidate_birthdate = Column(Date)
     candidate_gender_id = Column(SmallInteger)

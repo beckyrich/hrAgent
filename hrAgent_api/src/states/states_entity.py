@@ -11,5 +11,4 @@ class States(config.Base):
     state_capital = Column(String)
     created = Column(DateTime)
     last_updated = Column(DateTime)
-        
     

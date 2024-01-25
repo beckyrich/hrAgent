@@ -10,6 +10,9 @@ A company is the parent to individual locations or instances of company branches
 
 #### Features at the company level
 
+- Show a list of companies
+  - Get master company and all locations based on the parent co.
+  - Get an individual location
 - candidates matched to companies
   - The client should be able to view candidates who have applied:
     - to the company for any role/job

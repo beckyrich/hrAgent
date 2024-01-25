@@ -9,11 +9,11 @@ class CompanyController:
 
     service: CompanyService = Depends(CompanyService)
     
-    @Get("/get_company")
+    @Get("/")
     def get_company(self):
         return self.service.get_company()
                 
-    @Post("/add_company")
+    @Post("/add")
     def add_company(self, company: Company):
         return self.service.add_company(company)
  

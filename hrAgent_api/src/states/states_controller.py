@@ -8,12 +8,15 @@ from src.states.states_model import States
 class StatesController:
 
     service: StatesService = Depends(StatesService)
-    
-    @Get("/get_states")
-    def get_states(self):
+        
+    @Get("/")
+    def get_state_by_abbv(self, abbv: str = None):
+        if abbv:
+            print("Abbreviation Found:", abbv)
+            return self.service.get_one_state(abbv)
         return self.service.get_states()
                 
-    @Post("/add_states")
+    @Post("/add")
     def add_states(self, states: States):
         return self.service.add_states(states)
  

@@ -14,4 +14,3 @@ config = OrmProvider(
         port=os.getenv("DB_PORT", "5433")
     )
 )
-        

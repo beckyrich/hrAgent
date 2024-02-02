@@ -19,7 +19,7 @@ class MasterCompanyService:
         )
         self.session.add(new_master_company)
         self.session.commit()
-        return new_master_company.id
+        return new_master_company.master_company_id
 
     @db_request_handler
     def get_master_company(self):

@@ -3,6 +3,7 @@ from src.company.company_entity import Company as CompanyEntity
 from orm_config import config
 from nest.core.decorators import db_request_handler
 from functools import lru_cache
+from sqlalchemy import select
 
 
 @lru_cache()
@@ -22,6 +23,8 @@ class CompanyService:
         return new_company.id
 
     @db_request_handler
-    def get_company(self):
-        return self.session.query(CompanyEntity).all()
+    def get_company(self, master_co_id: int = None):
+        if master_co_id is None:
+            return self.session.query(CompanyEntity).all()
+        return self.session.scalars(select(CompanyEntity).where(CompanyEntity.parent_co_id == master_co_id)).all()
  

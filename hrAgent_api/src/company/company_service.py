@@ -20,7 +20,7 @@ class CompanyService:
         )
         self.session.add(new_company)
         self.session.commit()
-        return new_company.id
+        return new_company.company_id
 
     @db_request_handler
     def get_company(self, master_co_id: int = None):

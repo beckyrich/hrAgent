@@ -5,8 +5,8 @@ from pydantic import BaseModel
 class Company(BaseModel):
     company_id: int
     parent_co_id: int
-    address_line1: str
-    address_line2: str
+    address_line_1: str
+    address_line_2: str
     postal_code: str
     state_id: int
     created: datetime

@@ -13,7 +13,7 @@ class CompanyController:
     def get_company(self):
         return self.service.get_company()
                 
-    @Post("/add")
+    @Post("/")
     def add_company(self, company: Company):
         return self.service.add_company(company)
  

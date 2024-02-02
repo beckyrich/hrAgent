@@ -1,5 +1,5 @@
 from orm_config import config
-from sqlalchemy import Column, Integer, String, Float, BigInteger, Numeric, DateTime, SmallInteger
+from sqlalchemy import Column, String, Float, BigInteger, Numeric, DateTime, SmallInteger
     
     
 class Company(config.Base):

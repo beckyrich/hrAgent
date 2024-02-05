@@ -1,7 +1,7 @@
 from datetime import datetime
 from pydantic import BaseModel
-    
-    
+
+
 class Candidate(BaseModel):
     candidate_id: int
     candidate_first_name: str
@@ -14,4 +14,3 @@ class Candidate(BaseModel):
     last_updated: datetime
     last_login: datetime
     status_id: int
-    

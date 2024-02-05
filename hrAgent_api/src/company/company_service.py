@@ -8,16 +8,13 @@ from sqlalchemy import select
 
 @lru_cache()
 class CompanyService:
-
     def __init__(self):
         self.orm_config = config
         self.session = self.orm_config.get_db()
-    
+
     @db_request_handler
     def add_company(self, company: Company):
-        new_company = CompanyEntity(
-            **company.dict()
-        )
+        new_company = CompanyEntity(**company.dict())
         self.session.add(new_company)
         self.session.commit()
         return new_company.company_id
@@ -26,5 +23,6 @@ class CompanyService:
     def get_company(self, master_co_id: int = None):
         if master_co_id is None:
             return self.session.query(CompanyEntity).all()
-        return self.session.scalars(select(CompanyEntity).where(CompanyEntity.parent_co_id == master_co_id)).all()
- 
+        return self.session.scalars(
+            select(CompanyEntity).where(CompanyEntity.parent_co_id == master_co_id)
+        ).all()

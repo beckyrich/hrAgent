@@ -1,10 +1,20 @@
 from orm_config import config
-from sqlalchemy import Column, Integer, String, Float, BigInteger, Numeric, Date, SmallInteger, DateTime
-    
-    
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
+    Float,
+    BigInteger,
+    Numeric,
+    Date,
+    SmallInteger,
+    DateTime,
+)
+
+
 class Candidate(config.Base):
     __tablename__ = "candidate"
-    
+
     candidate_id = Column(BigInteger, primary_key=True, autoincrement=True)
     candidate_first_name = Column(String)
     candidate_last_name = Column(String)
@@ -15,5 +25,4 @@ class Candidate(config.Base):
     created = Column(DateTime)
     last_updated = Column(DateTime)
     last_login = Column(DateTime)
-    status_id = Column(Integer)        
-    
+    status_id = Column(Integer)

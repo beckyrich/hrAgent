@@ -7,16 +7,13 @@ from functools import lru_cache
 
 @lru_cache()
 class JobsService:
-
     def __init__(self):
         self.orm_config = config
         self.session = self.orm_config.get_db()
-    
+
     @db_request_handler
     def add_jobs(self, jobs: Jobs):
-        new_jobs = JobsEntity(
-            **jobs.dict()
-        )
+        new_jobs = JobsEntity(**jobs.dict())
         self.session.add(new_jobs)
         self.session.commit()
         return new_jobs.id
@@ -24,4 +21,3 @@ class JobsService:
     @db_request_handler
     def get_jobs(self):
         return self.session.query(JobsEntity).all()
- 

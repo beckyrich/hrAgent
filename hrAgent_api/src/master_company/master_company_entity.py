@@ -1,10 +1,19 @@
 from orm_config import config
-from sqlalchemy import Column, Integer, String, Float, BigInteger, DateTime, SmallInteger
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
+    Float,
+    BigInteger,
+    DateTime,
+    SmallInteger,
+)
 import datetime
-    
+
+
 class MasterCompany(config.Base):
     __tablename__ = "master_company"
-    
+
     master_company_id = Column(BigInteger, primary_key=True, autoincrement=True)
     co_name = Column(String, unique=True, nullable=False)
     address_line_1 = Column(String)
@@ -15,5 +24,3 @@ class MasterCompany(config.Base):
     last_updated = Column(DateTime, default=datetime.datetime.utcnow())
     company_type = Column(Integer)
     status_id = Column(Integer)
-        
-    

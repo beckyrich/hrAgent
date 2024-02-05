@@ -1,8 +1,8 @@
 from datetime import datetime
 from pydantic import BaseModel
 from typing import Optional
-    
-    
+
+
 class MasterCompany(BaseModel):
     master_company_id: Optional[int]
     co_name: str

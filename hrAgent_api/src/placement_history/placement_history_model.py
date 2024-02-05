@@ -1,7 +1,7 @@
 from datetime import datetime
 from pydantic import BaseModel
-    
-    
+
+
 class PlacementHistory(BaseModel):
     placement_history_id: int
     job_id: int

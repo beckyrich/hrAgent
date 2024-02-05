@@ -1,7 +1,7 @@
 from datetime import datetime
 from pydantic import BaseModel
-    
-    
+
+
 class States(BaseModel):
     state_id: int
     state_abbv: str

@@ -7,16 +7,13 @@ from functools import lru_cache
 
 @lru_cache()
 class ExamplesService:
-
     def __init__(self):
         self.orm_config = config
         self.session = self.orm_config.get_db()
-    
+
     @db_request_handler
     def add_examples(self, examples: Examples):
-        new_examples = ExamplesEntity(
-            **examples.dict()
-        )
+        new_examples = ExamplesEntity(**examples.dict())
         self.session.add(new_examples)
         self.session.commit()
         return new_examples.id
@@ -24,4 +21,3 @@ class ExamplesService:
     @db_request_handler
     def get_examples(self):
         return self.session.query(ExamplesEntity).all()
- 

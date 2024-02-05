@@ -22,13 +22,13 @@ app = App(
         GenderModule,
         MasterCompanyModule,
         StatesModule,
-    ]
+    ],
 )
 
 
 @app.on_event("startup")
 async def startup():
-    config.create_all() 
+    config.create_all()
 
 
 @app.get("/")

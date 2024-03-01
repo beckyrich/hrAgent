@@ -5,6 +5,7 @@ from src.master_company.master_company_entity import (
 from orm_config import config
 from nest.core.decorators import db_request_handler
 from functools import lru_cache
+from sqlalchemy import select
 
 
 @lru_cache()
@@ -23,3 +24,18 @@ class MasterCompanyService:
     @db_request_handler
     def get_master_company(self):
         return self.session.query(MasterCompanyEntity).all()
+    
+    @db_request_handler
+    def get_one_master_company(self, id: int=None, company_name: str = None):
+        stmt = select(MasterCompanyEntity)
+
+        if not any([id, company_name]):
+            return self.session.scalars(stmt).first()
+        
+        if id:
+            stmt = stmt.where(MasterCompanyEntity.master_company_id == id)
+        
+        if company_name:
+            stmt = stmt.where(MasterCompanyEntity.co_name.like(f"%{company_name}%"))
+        
+        return self.session.scalars(stmt).first()

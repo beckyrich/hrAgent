@@ -10,18 +10,18 @@ A company is the parent to individual locations or instances of company branches
 
 #### Features at the company level
 
-- Show a list of companies
-  - Get master company and all locations based on the parent co.
-  - Get an individual location
-- candidates matched to companies
-  - The client should be able to view candidates who have applied:
-    - to the company for any role/job
-    - to a specific role/job 
-    - by job level
-- The company should be able to update their status. 
-  - Active/Not-Active
-  - Branch location
-  - location point of contact
+- [X] Show a list of companies
+  - [X] Get master company and all locations based on the parent co.
+  - [X] Get an individual location
+- [ ]candidates matched to companies
+  - [ ]The client should be able to view candidates (and their application status) who have applied:
+    - [ ] to the company for any role/job
+    - [ ] to a specific role/job 
+    - [ ] by job level
+- [ ] The company should be able to update their status. 
+  - [ ] Active/Not-Active
+  - [ ] Branch location
+  - [ ] location point of contact
 
 #### Features at the Job Level
 

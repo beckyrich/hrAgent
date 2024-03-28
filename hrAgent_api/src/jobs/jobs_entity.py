@@ -16,6 +16,7 @@ class Jobs(config.Base):
     __tablename__ = "jobs"
 
     job_id = Column(BigInteger, primary_key=True, autoincrement=True)
+    company_id = Column(BigInteger, nullable=False)
     job_type = Column(Enum(JobTypeEnum))
     job_title = Column(String)
     job_level = Column(Enum(JobLevelEnum))

@@ -1,4 +1,5 @@
 from orm_config import config
+from datetime import datetime, UTC
 from sqlalchemy import (
     Column,
     Integer,
@@ -26,3 +27,14 @@ class Candidate(config.Base):
     last_updated = Column(DateTime)
     last_login = Column(DateTime)
     status_id = Column(Integer)
+
+
+class Application(config.Base):
+    __tablename__ = "application"
+
+    application_id = Column(BigInteger, primary_key=True, autoincrement=True)
+    job_id = Column(BigInteger, nullable=False)
+    candidate_id = Column(BigInteger, nullable=False)
+    status = Column(Integer, default=1)
+    created = Column(DateTime, default=datetime.now(UTC))
+    last_updated = Column(DateTime, default=datetime.now(UTC))

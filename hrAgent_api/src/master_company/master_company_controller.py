@@ -19,7 +19,7 @@ class MasterCompanyController:
         # company.get_company with master id
         
         
-        return master_co.master_company_id
+        return master_co
 
 
     @Post("/add_master_company")

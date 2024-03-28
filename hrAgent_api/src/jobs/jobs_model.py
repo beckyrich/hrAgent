@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 class Jobs(BaseModel):
     job_id: str
+    company_id: int
     job_type: JobTypeEnum = JobTypeEnum.seasonal
     job_title: str
     jobs_level: JobLevelEnum = JobLevelEnum.entry

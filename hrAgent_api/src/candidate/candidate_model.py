@@ -1,5 +1,6 @@
-from datetime import datetime
+from datetime import datetime, UTC
 from pydantic import BaseModel
+from typing import Optional
 
 
 class Candidate(BaseModel):
@@ -14,3 +15,13 @@ class Candidate(BaseModel):
     last_updated: datetime
     last_login: datetime
     status_id: int
+
+
+class Application(BaseModel):
+    job_id: str
+    candidate_id: int
+    status: Optional[int] = 1
+
+
+class ApplicationUpdate(Application):
+    last_updated: datetime = datetime.now(UTC)

@@ -20,8 +20,8 @@ class Candidate(BaseModel):
 class Application(BaseModel):
     job_id: str
     candidate_id: int
-    status: Optional[int] = 1
 
 
 class ApplicationUpdate(Application):
+    status: Optional[int]
     last_updated: datetime = datetime.now(UTC)

@@ -16,7 +16,7 @@ class CandidateService:
         new_candidate = CandidateEntity(**candidate.dict())
         self.session.add(new_candidate)
         self.session.commit()
-        return new_candidate.id
+        return new_candidate.candidate_id
 
     @db_request_handler
     def get_candidate(self):

@@ -18,7 +18,7 @@ class Candidate(BaseModel):
 
 
 class Application(BaseModel):
-    job_id: str
+    job_id: int
     candidate_id: int
 
 

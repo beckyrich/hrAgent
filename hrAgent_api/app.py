@@ -10,6 +10,14 @@ from src.gender.gender_module import GenderModule
 from src.master_company.master_company_module import MasterCompanyModule
 from src.states.states_module import StatesModule
 
+# FastAPI docs says to put below in main.py but decided to put it here (Security- First Steps)
+from typing import Annotated
+from fastapi import Depends, FastAPI
+from fastapi.security import OAuth2PasswordBearer
+
+app = FastAPI()
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
 app = App(
     description="PyNest service",
     title="Our HR Agent",
@@ -34,3 +42,8 @@ async def startup():
 @app.get("/")
 async def index():
     return RedirectResponse(url=app.docs_url)
+
+# From security first steps part of docs
+@app.get("/items/")
+async def read_items(token: Annotated[str, Depends(oauth2_scheme)]):
+    return {"token": token}

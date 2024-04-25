@@ -12,10 +12,9 @@ from src.states.states_module import StatesModule
 
 # FastAPI docs says to put below in main.py but decided to put it here (Security- First Steps)
 from typing import Annotated
-from fastapi import Depends, FastAPI
+from fastapi import Depends
 from fastapi.security import OAuth2PasswordBearer
 
-app = FastAPI()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 app = App(

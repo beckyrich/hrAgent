@@ -2,9 +2,14 @@
 # Made it through "Get current user" in FastAPI docs
 from typing import Annotated
 
-from fastapi import Depends
+from nest.core import Depends
 from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel
+from fastapi import APIRouter
+
+app = APIRouter(prefix= "/auth")
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 class User(BaseModel):
     username: str

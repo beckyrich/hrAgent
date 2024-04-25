@@ -12,10 +12,10 @@ from src.states.states_module import StatesModule
 
 # FastAPI docs says to put below in main.py but decided to put it here (Security- First Steps)
 from typing import Annotated
-from fastapi import Depends
-from fastapi.security import OAuth2PasswordBearer
+from nest.core import Depends
+from src.auth.auth import oauth2_scheme
+from src.auth.auth import app as authRouter
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 app = App(
     description="PyNest service",
@@ -32,6 +32,7 @@ app = App(
     ],
 )
 
+app.include_router(authRouter)
 
 @app.on_event("startup")
 async def startup():
@@ -41,8 +42,3 @@ async def startup():
 @app.get("/")
 async def index():
     return RedirectResponse(url=app.docs_url)
-
-# From security first steps part of docs
-@app.get("/items/")
-async def read_items(token: Annotated[str, Depends(oauth2_scheme)]):
-    return {"token": token}

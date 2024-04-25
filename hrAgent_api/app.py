@@ -9,11 +9,6 @@ from src.jobs.jobs_module import JobsModule
 from src.gender.gender_module import GenderModule
 from src.master_company.master_company_module import MasterCompanyModule
 from src.states.states_module import StatesModule
-
-# FastAPI docs says to put below in main.py but decided to put it here (Security- First Steps)
-from typing import Annotated
-from nest.core import Depends
-from src.auth.auth import oauth2_scheme
 from src.auth.auth import app as authRouter
 
 

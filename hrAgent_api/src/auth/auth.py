@@ -1,8 +1,9 @@
 # Trying to create User Model here. Unsure how to link this all together to app.py
 # Made it through "Get current user" in FastAPI docs
-from typing import Annotated
+from typing import Annotated, Union
 
-from nest.core import Depends, HTTPException, status
+from nest.core import Depends
+from fastapi import HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from pydantic import BaseModel
 from fastapi import APIRouter
@@ -23,6 +24,7 @@ fake_users_db = {
         "disabled": True,
     },
 }
+
 app = APIRouter(prefix= "/auth")
 
 def fake_hash_password(password: str):
@@ -32,14 +34,21 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 class User(BaseModel):
     username: str
-    email: str | None = None
-    full_name: str | None = None
-    disabled: bool | None = None
+    email: Union[str, None] = None
+    full_name: Union[str, None] = None
+    disabled: Union[bool, None] = None
+
+class UserInDB(User):
+    hashed_password: str
+
+def get_user(db, username: str):
+    if username in db:
+        user_dict = db[username]
+        return UserInDB(**user_dict)
 
 def fake_decode_token(token):
-    return User(
-        username=token + "fakedecoded", email="john@example.com", full_name="John Doe"
-    )
+    user = get_user(fake_users_db, token)
+    return user
 
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
     user = fake_decode_token(token)

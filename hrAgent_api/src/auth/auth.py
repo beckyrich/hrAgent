@@ -1,5 +1,3 @@
-# Trying to create User Model here. Unsure how to link this all together to app.py
-# Made it through "Get current user" in FastAPI docs
 from typing import Annotated, Union
 
 from nest.core import Depends
@@ -61,7 +59,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
     return user
 
 async def get_current_active_user(
-    current_user: Annotated[user, Depends(get_current_user)],
+    current_user: Annotated[User, Depends(get_current_user)],
 ):
     if current_user.disabled:
         raise HTTPException(status_code=400, detail="Inactive user")
@@ -80,5 +78,7 @@ async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
     return {"access_token": user.username, "token_type": "bearer"}
 
 @app.get("/users/me")
-async def read_users_me(current_user: Annotated[User, Depends(get_current_user)]):
+async def read_users_me(
+    current_user: Annotated[User, Depends(get_current_active_user)]
+):
     return current_user

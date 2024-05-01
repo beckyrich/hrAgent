@@ -1,4 +1,4 @@
-from typing import Annotated, Union
+from typing import Annotated
 
 from nest.core import Depends
 from fastapi import HTTPException, status
@@ -32,9 +32,9 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 class User(BaseModel):
     username: str
-    email: Union[str, None] = None
-    full_name: Union[str, None] = None
-    disabled: Union[bool, None] = None
+    email: str | None = None
+    full_name: str | None = None
+    disabled: bool | None = None
 
 class UserInDB(User):
     hashed_password: str
@@ -45,6 +45,8 @@ def get_user(db, username: str):
         return UserInDB(**user_dict)
 
 def fake_decode_token(token):
+    # This doesn't provide any security at all
+    # Check the next version
     user = get_user(fake_users_db, token)
     return user
 

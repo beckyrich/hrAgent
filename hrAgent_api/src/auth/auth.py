@@ -28,7 +28,7 @@ app = APIRouter(prefix= "/auth")
 def fake_hash_password(password: str):
     return "fakehashed" + password
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 
 class User(BaseModel):
     username: str

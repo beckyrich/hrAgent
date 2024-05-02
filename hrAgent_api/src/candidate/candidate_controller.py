@@ -1,5 +1,6 @@
 from nest.core import Controller, Get, Post, Depends
-from src.auth.auth import oauth2_scheme
+from typing import Annotated
+from src.auth.auth import get_current_active_user
 from src.candidate.candidate_service import CandidateService
 from src.candidate.candidate_model import Candidate
 
@@ -13,5 +14,8 @@ class CandidateController:
         return self.service.get_candidate()
 
     @Post("/add_candidate")
-    def add_candidate(self, candidate: Candidate, token = Depends(oauth2_scheme)):
+    def add_candidate(
+        self, 
+        candidate: Annotated[Candidate, Depends(get_current_active_user)]
+    ):
         return self.service.add_candidate(candidate)
